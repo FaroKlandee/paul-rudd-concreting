@@ -4,10 +4,10 @@ import {
     SheetContent,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import { Mail, Menu, Phone } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaFacebookF } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 
 export function Header() {
     const navItems = [
@@ -23,28 +23,24 @@ export function Header() {
             {/* Top bar with contact and social */}
             <div className="bg-white border-b">
                 <div className="container mx-auto px-4">
-                    <div className="flex items-center justify-end h-12 gap-4">
-                        <div className="hidden md:flex items-center gap-6">
+                    <div className="flex items-center justify-between h-12">
+                        <div className="flex items-center gap-6">
                             <a href="tel:0400000000" className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
                                 <Phone className="h-4 w-4" />
                                 <span>0400 000 000</span>
                             </a>
-                            <a href="mailto:info@paulrudd.com" className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
-                                <Mail className="h-4 w-4" />
-                                <span>info@paulrudd.com</span>
-                            </a>
+                            <Button variant="default" size="sm" asChild>
+                                <Link href="/contact">Contact Us</Link>
+                            </Button>
                         </div>
                         <a
                             href="https://www.facebook.com/paulruddconcreting"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
+                            className="flex gap-2 text-gray-600 hover:text-gray-900"
                         >
-                            <FaFacebookF className="h-4 w-4" />
+                            <FaFacebook className="h-6 w-6" />
                         </a>
-                        <Button variant="default" size="sm" asChild>
-                            <Link href="/contact">Contact Us</Link>
-                        </Button>
                     </div>
                 </div>
             </div>

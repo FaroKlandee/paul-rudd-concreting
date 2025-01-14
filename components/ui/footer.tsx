@@ -16,13 +16,13 @@ export function Footer() {
                             alt="Paul Rudd Concreting"
                             width={337}
                             height={341}
-                            className="h-auto w-auto mb-4 mix-blend-difference"
+                            className="h-40 w-40 object-contain mix-blend-lighter"
                         />
                         <a
                             href="https://www.facebook.com/paulruddconcreting"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center space-x-2 text-gray-300 hover:text-white"
+                            className="flex items-center space-x-2 text-gray-300 hover:text-white translate-y-2"
                         >
                             <FaFacebookF className="h-5 w-5" />
                             <span>Follow us on Facebook</span>
@@ -43,7 +43,7 @@ export function Footer() {
                             </div>
                             <div className="flex items-center space-x-3">
                                 <MapPin className="h-5 w-5" />
-                                <span>Sydney, NSW</span>
+                                <span>Orange, NSW</span>
                             </div>
                         </div>
                     </div>
