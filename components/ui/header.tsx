@@ -23,7 +23,8 @@ export function Header() {
             {/* Top bar with contact and social */}
             <div className="bg-white border-b">
                 <div className="container mx-auto px-4">
-                    <div className="flex items-center justify-between h-12">
+                    <div className="flex items-center h-12">
+                        <div className="flex-1"></div>
                         <div className="flex items-center gap-6">
                             <a href="tel:0400000000" className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
                                 <Phone className="h-4 w-4" />
@@ -33,14 +34,17 @@ export function Header() {
                                 <Link href="/contact">Contact Us</Link>
                             </Button>
                         </div>
-                        <a
-                            href="https://www.facebook.com/paulruddconcreting"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex gap-2 text-gray-600 hover:text-gray-900"
-                        >
-                            <FaFacebook className="h-6 w-6" />
-                        </a>
+                        <div className="flex-1 flex justify-end">
+                            <a
+                                href="https://www.facebook.com/paulruddconcreting"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex gap-2 text-gray-600 hover:text-gray-900"
+                            >
+                                <FaFacebook className="h-6 w-6" />
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
