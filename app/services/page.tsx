@@ -6,7 +6,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Building2, ChevronRight, Home, Phone } from "lucide-react";
+import { Building, Building2, ChevronRight, Home, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -57,6 +57,14 @@ export default function ServicesPage() {
         }
     ];
 
+    const restorationServices = [
+        {
+            title: "Architectural Restoration",
+            description: "Expert concrete restoration services to preserve and revitalize historic and damaged concrete structures.",
+            features: ["Heritage restoration", "Crack repair", "Surface rehabilitation", "Structural reinforcement"]
+        }
+    ]
+
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
@@ -83,7 +91,7 @@ export default function ServicesPage() {
             <section className="py-16">
                 <div className="container mx-auto px-4">
                     {/* Residential Services */}
-                    <div className="mb-20">
+                    <div id="residential-excellence" className="mb-20">
                         <div className="flex items-center gap-3 mb-8">
                             <Home className="h-8 w-8 text-orange-500" />
                             <h2 className="text-3xl font-bold">Residential Services</h2>
@@ -112,12 +120,40 @@ export default function ServicesPage() {
 
                     {/* Commercial Services */}
                     <div className="mb-20">
-                        <div className="flex items-center gap-3 mb-8">
+                        <div id="commercial-&-industrial" className="flex items-center gap-3 mb-8">
                             <Building2 className="h-8 w-8 text-orange-500" />
                             <h2 className="text-3xl font-bold">Commercial & Industrial Services</h2>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {commercialServices.map((service, index) => (
+                                <Card key={index} className="group">
+                                    <CardHeader>
+                                        <CardTitle>{service.title}</CardTitle>
+                                        <CardDescription>{service.description}</CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <ul className="space-y-2">
+                                            {service.features.map((feature, fIndex) => (
+                                                <li key={fIndex} className="flex items-center gap-2">
+                                                    <ChevronRight className="h-4 w-4 text-orange-500" />
+                                                    <span>{feature}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Added new section for architectural restoration with id and scroll margin */}
+                    <div id="architectural-restoration" className="mb-20 scroll-mt-16">
+                        <div className="flex items-center gap-3 mb-8">
+                            <Building className="h-8 w-8 text-orange-500" />
+                            <h2 className="text-3xl font-bold">Architectural Restoration</h2>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {restorationServices.map((service, index) => (
                                 <Card key={index} className="group">
                                     <CardHeader>
                                         <CardTitle>{service.title}</CardTitle>

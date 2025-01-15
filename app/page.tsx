@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,8 +10,12 @@ import {
 } from "@/components/ui/card";
 import { Check, ChevronRight, Clock, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
+
+  const router = useRouter();
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -58,19 +64,22 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Driveways & Paths",
-                description: "Custom designed driveways that enhance your property's appeal and functionality.",
+                title: "Residential Excellence",
+                description: "Transform your property with premium concrete solutions. From stunning driveways to entertainment areas, we create spaces that blend beauty with durability.",
+                highlights: ["Custom driveways", "House slabs", "Entertainment areas"],
                 image: '/images/driveway.jpg'
               },
               {
-                title: "Concrete Slabs",
-                description: "Precision-engineered concrete slabs for commercial and residential projects.",
-                image: '/images/slab.jpg'
+                title: "Commercial & Industrial",
+                description: "Robust concrete solutions for businesses. We deliver high-performance flooring and foundations that stand up to the demands of commercial use.",
+                highlights: ["Industrial flooring", "Commercial foundations", "Loading bays"],
+                image: '/images/commercial.jpg'
               },
               {
-                title: "Decorative Concrete",
-                description: "Beautiful and durable decorative concrete solutions for any space.",
-                image: '/images/decorative.jpg'
+                title: "Architectural Restoration",
+                description: "Breathe new life into heritage structures. Our specialized restoration services preserve the character of your building while ensuring structural integrity.",
+                highlights: ["Heritage preservation", "Structural repair", "Expert craftsmanship"],
+                image: '/images/restoration.jpg'
               }
             ].map((service, index) => (
               <Card key={index} className="group hover:shadow-lg transition-shadow">
@@ -80,7 +89,11 @@ export default function HomePage() {
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="ghost" className="group-hover:translate-x-2 transition-transform">
+                  <Button
+                    variant="ghost"
+                    className="group-hover:translate-x-2 transition-transform"
+                    onClick={() => router.push(`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`)}
+                  >
                     Learn More <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
