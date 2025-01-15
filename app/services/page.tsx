@@ -178,7 +178,7 @@ export default function ServicesPage() {
                     <div className="bg-gray-50 rounded-lg p-8 text-center">
                         <h3 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
                         <p className="text-gray-600 mb-6">
-                            Contact us for a free consultation and quote. We're here to help bring your vision to life.
+                            Contact us for a free consultation and quote. We&apos;re here to help bring your vision to life.
                         </p>
                         <div className="flex justify-center gap-4">
                             <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
