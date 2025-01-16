@@ -1,3 +1,7 @@
+'use client';
+
+import { BackToTop } from "@/components/ui/back-to-top";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -9,6 +13,8 @@ import {
 import { Building, Building2, ChevronRight, Home, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+
 
 export default function ServicesPage() {
     const residentialServices = [
@@ -90,6 +96,7 @@ export default function ServicesPage() {
             {/* Service Categories */}
             <section className="py-16">
                 <div className="container mx-auto px-4">
+                    <Breadcrumb />
                     {/* Residential Services */}
                     <div id="residential-excellence" className="mb-20">
                         <div className="flex items-center gap-3 mb-8">
@@ -195,6 +202,7 @@ export default function ServicesPage() {
                     </div>
                 </div>
             </section>
+            <BackToTop />
         </main>
     );
 }
