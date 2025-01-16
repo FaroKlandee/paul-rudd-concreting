@@ -71,17 +71,24 @@ export default function HomePage() {
               {
                 title: "Commercial & Industrial",
                 description: "Robust concrete solutions for businesses. We deliver high-performance flooring and foundations that stand up to the demands of commercial use.",
-                image: '/images/commercial.jpg'
+                image: '/images/rest-2.jpg'
               },
               {
                 title: "Architectural Restoration",
                 description: "Breathe new life into heritage structures. Our specialized restoration services preserve the character of your building while ensuring structural integrity.",
-                image: '/images/restoration.jpg'
+                image: '/images/rest-1.jpg'
               }
             ].map((service, index) => (
               <Card key={index} className="group hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-48 bg-gray-200 mb-4 rounded-md" />
+                  <div className="relative h-48 mb-4 rounded-md overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <CardTitle>{service.title}</CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
@@ -124,7 +131,14 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-200 h-96 rounded-lg" /> {/* Placeholder for image */}
+            <div className="relative h-96 rounded-lg overflow-hidden" >
+              <Image
+                src="/images/stencil-1.jpg"
+                alt="Paul Rudd Concreting logo"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
