@@ -66,19 +66,16 @@ export default function HomePage() {
               {
                 title: "Residential Excellence",
                 description: "Transform your property with premium concrete solutions. From stunning driveways to entertainment areas, we create spaces that blend beauty with durability.",
-                highlights: ["Custom driveways", "House slabs", "Entertainment areas"],
                 image: '/images/driveway.jpg'
               },
               {
                 title: "Commercial & Industrial",
                 description: "Robust concrete solutions for businesses. We deliver high-performance flooring and foundations that stand up to the demands of commercial use.",
-                highlights: ["Industrial flooring", "Commercial foundations", "Loading bays"],
                 image: '/images/commercial.jpg'
               },
               {
                 title: "Architectural Restoration",
                 description: "Breathe new life into heritage structures. Our specialized restoration services preserve the character of your building while ensuring structural integrity.",
-                highlights: ["Heritage preservation", "Structural repair", "Expert craftsmanship"],
                 image: '/images/restoration.jpg'
               }
             ].map((service, index) => (
