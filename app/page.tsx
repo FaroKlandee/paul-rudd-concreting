@@ -1,5 +1,6 @@
 'use client';
 
+import { BackToTop } from "@/components/ui/back-to-top";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -53,6 +54,7 @@ export default function HomePage() {
       {/* Services Overview */}
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-4">
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold mb-4">Our Services</h2>
             <p className="text-gray-600">
@@ -66,25 +68,29 @@ export default function HomePage() {
               {
                 title: "Residential Excellence",
                 description: "Transform your property with premium concrete solutions. From stunning driveways to entertainment areas, we create spaces that blend beauty with durability.",
-                highlights: ["Custom driveways", "House slabs", "Entertainment areas"],
                 image: '/images/driveway.jpg'
               },
               {
                 title: "Commercial & Industrial",
                 description: "Robust concrete solutions for businesses. We deliver high-performance flooring and foundations that stand up to the demands of commercial use.",
-                highlights: ["Industrial flooring", "Commercial foundations", "Loading bays"],
-                image: '/images/commercial.jpg'
+                image: '/images/rest-2.jpg'
               },
               {
                 title: "Architectural Restoration",
                 description: "Breathe new life into heritage structures. Our specialized restoration services preserve the character of your building while ensuring structural integrity.",
-                highlights: ["Heritage preservation", "Structural repair", "Expert craftsmanship"],
-                image: '/images/restoration.jpg'
+                image: '/images/rest-1.jpg'
               }
             ].map((service, index) => (
               <Card key={index} className="group hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-48 bg-gray-200 mb-4 rounded-md" />
+                  <div className="relative h-48 mb-4 rounded-md overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <CardTitle>{service.title}</CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
@@ -127,7 +133,14 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="bg-gray-200 h-96 rounded-lg" /> {/* Placeholder for image */}
+            <div className="relative h-96 rounded-lg overflow-hidden" >
+              <Image
+                src="/images/stencil-1.jpg"
+                alt="Paul Rudd Concreting logo"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -170,6 +183,7 @@ export default function HomePage() {
           </Card>
         </div>
       </section>
+      <BackToTop />
     </main>
   );
 }
