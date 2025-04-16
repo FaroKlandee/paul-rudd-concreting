@@ -4,6 +4,7 @@ import {
     SheetContent,
     SheetTrigger,
 } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Menu, Phone } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +15,8 @@ export function Header() {
         { name: 'Home', href: '/' },
         { name: 'Services', href: '/services' },
         { name: 'Gallery', href: '/gallery' },
-        { name: 'About', href: '/about' },
+        { name: 'Models', href: '/models' },
+        { name: 'Calculator', href: '/calculator' },
         { name: 'Contact', href: '/contact' },
     ];
 
@@ -34,7 +36,8 @@ export function Header() {
                                 <Link href="/contact">Contact Us</Link>
                             </Button>
                         </div>
-                        <div className="flex-1 flex justify-end">
+                        <div className="flex-1 flex justify-end items-center gap-4">
+                            <ThemeToggle />
                             <a
                                 href="https://www.facebook.com/paulruddconcreting"
                                 target="_blank"

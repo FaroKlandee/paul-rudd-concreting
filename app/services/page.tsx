@@ -77,7 +77,7 @@ export default function ServicesPage() {
             <section className="relative h-64 bg-gradient-to-r from-gray-900 to-gray-800">
                 <div className="absolute inset-0 bg-black/50" />
                 <Image
-                    src="/api/placeholder/1920/1080"
+                    src="/images/rest-3.jpg"
                     alt="Concrete services"
                     fill
                     className="object-cover"

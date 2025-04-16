@@ -1,3 +1,5 @@
+import { ThemeProvider } from '@/components/theme-provider';
+import { Chatbot } from '@/components/ui/chatbot';
 import { Footer } from '@/components/ui/footer';
 import { Header } from '@/components/ui/header';
 import { NavigationEvents } from "@/components/ui/navigation-events";
@@ -15,12 +17,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <Header />
-        <NavigationEvents />
-        {children}
-        <Footer />
+        <ThemeProvider defaultTheme="light" storageKey="orange-concrete-theme">
+          <Header />
+          <NavigationEvents />
+          {children}
+          <Footer />
+          <Chatbot />
+        </ThemeProvider>
       </body>
     </html>
   );
