@@ -39,3 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+Testing/UAT-DEV-set-1.md
+Testing/UAT-DEV-set-1-results.md

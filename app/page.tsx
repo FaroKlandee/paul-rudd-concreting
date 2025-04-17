@@ -10,26 +10,36 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Check, ChevronRight, Clock, Mail, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 export default function HomePage() {
   const router = useRouter();
-  const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const whyChooseUsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Handle scroll for parallax effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+  // Scroll values for parallax effects
+  const { scrollY } = useScroll();
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Hero section parallax transforms
+  const heroTextY = useTransform(scrollY, [0, 500], [0, 100]);
+  const heroOpacity = useTransform(scrollY, [0, 500], [1, 0]);
+
+  // Services section parallax transforms
+  const serviceBg1Y = useTransform(scrollY, [300, 1000], [-50, 50]);
+  const serviceBg2Y = useTransform(scrollY, [300, 1000], [50, -30]);
+
+  // Why Choose Us section parallax transforms
+  const whyChooseUsBgY = useTransform(scrollY, [1000, 1800], [50, -40]);
+
+  // Contact section parallax transforms
+  const contactBgY = useTransform(scrollY, [1800, 2500], [-50, 60]);
 
   return (
     <main className="min-h-screen">
@@ -63,11 +73,11 @@ export default function HomePage() {
         </div>
 
         {/* Hero Content with Parallax Effect */}
-        <div
+        <motion.div
           className="relative container mx-auto px-4 h-full flex items-center"
           style={{
-            transform: `translateY(${scrollY * 0.2}px)`,
-            opacity: 1 - (scrollY * 0.001)
+            y: heroTextY,
+            opacity: heroOpacity
           }}
         >
           <div className="max-w-2xl text-white">
@@ -90,14 +100,14 @@ export default function HomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="text-white border-white hover:bg-white/20"
+                className="text-black border-white hover:bg-white/20"
                 onClick={() => router.push('/gallery')}
               >
                 View Our Work
               </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -108,16 +118,25 @@ export default function HomePage() {
       </section>
 
       {/* Services Overview with Parallax */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
+      <section
+        ref={servicesRef}
+        className="py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden"
+      >
         {/* Parallax Background Elements */}
-        <div
+        <motion.div
           className="absolute top-0 right-0 w-96 h-96 bg-orange-500/5 rounded-full -translate-y-1/2 translate-x-1/2"
-          style={{ transform: `translate(50%, -50%) translateY(${scrollY * 0.05}px)` }}
-        ></div>
-        <div
+          style={{
+            y: serviceBg1Y,
+            x: "50%"
+          }}
+        ></motion.div>
+        <motion.div
           className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/5 rounded-full translate-y-1/2 -translate-x-1/2"
-          style={{ transform: `translate(-50%, 50%) translateY(${scrollY * -0.03}px)` }}
-        ></div>
+          style={{
+            y: serviceBg2Y,
+            x: "-50%"
+          }}
+        ></motion.div>
         <div className="container mx-auto px-4">
 
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -180,12 +199,18 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us with Parallax */}
-      <section className="py-24 relative overflow-hidden">
+      <section
+        ref={whyChooseUsRef}
+        className="py-24 relative overflow-hidden"
+      >
         {/* Parallax Background Elements */}
-        <div
+        <motion.div
           className="absolute top-1/2 right-0 w-80 h-80 bg-orange-500/5 rounded-full translate-y-1/2 translate-x-1/2"
-          style={{ transform: `translate(50%, 50%) translateY(${scrollY * -0.04}px)` }}
-        ></div>
+          style={{
+            y: whyChooseUsBgY,
+            x: "50%"
+          }}
+        ></motion.div>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -221,12 +246,17 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section with Micro-interactions */}
-      <section className="bg-gray-50 dark:bg-gray-900 py-24 relative overflow-hidden">
+      <section
+        ref={contactRef}
+        className="bg-gray-50 dark:bg-gray-900 py-24 relative overflow-hidden"
+      >
         {/* Parallax Background Elements */}
-        <div
+        <motion.div
           className="absolute top-0 left-1/4 w-72 h-72 bg-orange-500/5 rounded-full -translate-y-1/2"
-          style={{ transform: `translateY(-50%) translateY(${scrollY * 0.06}px)` }}
-        ></div>
+          style={{
+            y: contactBgY
+          }}
+        ></motion.div>
         <div className="container mx-auto px-4">
           <Card className="max-w-4xl mx-auto">
             <CardHeader>

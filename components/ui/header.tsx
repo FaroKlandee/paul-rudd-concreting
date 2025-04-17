@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
     Sheet,
@@ -5,12 +7,50 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, Phone } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 
 export function Header() {
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [shouldShowHeader, setShouldShowHeader] = useState(true);
+    const { scrollY } = useScroll();
+
+    // Track scroll direction and position
+    useEffect(() => {
+        const updateScrollDirection = () => {
+            const currentScrollY = window.scrollY;
+
+            // Show header when scrolling up or at the top
+            if (currentScrollY <= 100) {
+                setShouldShowHeader(true);
+            } else if (currentScrollY < lastScrollY) {
+                // Scrolling up
+                setShouldShowHeader(true);
+            } else if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+                // Scrolling down and past first section
+                setShouldShowHeader(false);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", updateScrollDirection);
+
+        return () => {
+            window.removeEventListener("scroll", updateScrollDirection);
+        };
+    }, [lastScrollY]);
+
+    // Opacity transform for smooth fade in/out
+    const headerOpacity = useTransform(
+        scrollY,
+        [0, 100],
+        [1, 0.95]
+    );
     const navItems = [
         { name: 'Home', href: '/' },
         { name: 'Services', href: '/services' },
@@ -23,7 +63,16 @@ export function Header() {
     return (
         <>
             {/* Top bar with contact and social */}
-            <div className="bg-white border-b">
+            <motion.div
+                className="bg-white border-b fixed top-0 left-0 right-0 z-50"
+                initial={{ y: 0 }}
+                animate={{
+                    y: shouldShowHeader ? 0 : -200,
+                    opacity: shouldShowHeader ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                style={{ opacity: headerOpacity }}
+            >
                 <div className="container mx-auto px-4">
                     <div className="flex items-center h-12">
                         <div className="flex-1"></div>
@@ -50,10 +99,19 @@ export function Header() {
 
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
             {/* Main header with logo and navigation */}
-            <div className="bg-gray-100">
+            <motion.div
+                className="bg-gray-100 fixed top-12 left-0 right-0 z-40"
+                initial={{ y: 0 }}
+                animate={{
+                    y: shouldShowHeader ? 0 : -200,
+                    opacity: shouldShowHeader ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                style={{ opacity: headerOpacity }}
+            >
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-auto">
                         {/* Brand Logo */}
@@ -102,7 +160,10 @@ export function Header() {
                         </Sheet>
                     </div>
                 </div>
-            </div>
+            </motion.div>
+
+            {/* Spacer to prevent content from being hidden under fixed header */}
+            <div className="h-[108px]"></div>
         </>
     );
 }
