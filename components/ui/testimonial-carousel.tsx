@@ -30,7 +30,7 @@ export function TestimonialCarousel() {
             Also Paul and the team were so kind and patient with
             my three year old son who was absolutely fascinated with their work and
             wanted to be involved. Highly recommend 👍`,
-            image: "/images/house-1-1.jpg",
+            image: "",
             projectType: ""
         },
         {
@@ -110,10 +110,12 @@ export function TestimonialCarousel() {
                                                     )}
 
                                                     {/* Testimonial Content */}
-                                                    <div className="w-full md:w-2/3">
-                                                        <Quote className="h-8 w-8 text-orange-500 mb-4" />
+                                                    <div className={`w-full ${testimonial.image ? 'md:w-2/3' : 'text-center mx-auto max-w-2xl'}`}>
+                                                        <div className={`${!testimonial.image && 'flex justify-center'}`}>
+                                                            <Quote className="h-8 w-8 text-orange-500 mb-4" />
+                                                        </div>
                                                         <p className="text-lg italic mb-6">{testimonial.quote}</p>
-                                                        <div className="flex items-center">
+                                                        <div className={`flex ${!testimonial.image ? 'justify-center' : ''} items-center`}>
                                                             <div>
                                                                 <p className="font-bold">{testimonial.name}</p>
                                                                 <p className="text-sm text-gray-600 dark:text-gray-400">{testimonial.location}</p>
@@ -129,20 +131,26 @@ export function TestimonialCarousel() {
                         </div>
 
                         {/* Navigation Buttons */}
-                        <button
-                            onClick={prevTestimonial}
-                            className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-2 shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                            aria-label="Previous testimonial"
-                        >
-                            <ChevronLeft className="h-6 w-6" />
-                        </button>
-                        <button
-                            onClick={nextTestimonial}
-                            className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-2 shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                            aria-label="Next testimonial"
-                        >
-                            <ChevronRight className="h-6 w-6" />
-                        </button>
+                        <div className="absolute top-1/2 left-2 transform -translate-y-1/2 h-10 w-10">
+                            <button
+                                onClick={prevTestimonial}
+                                className="absolute inset-0 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors will-change-auto"
+                                style={{ willChange: 'background-color' }}
+                                aria-label="Previous testimonial"
+                            >
+                                <ChevronLeft className="h-6 w-6" />
+                            </button>
+                        </div>
+                        <div className="absolute top-1/2 right-2 transform -translate-y-1/2 h-10 w-10">
+                            <button
+                                onClick={nextTestimonial}
+                                className="absolute inset-0 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors will-change-auto"
+                                style={{ willChange: 'background-color' }}
+                                aria-label="Next testimonial"
+                            >
+                                <ChevronRight className="h-6 w-6" />
+                            </button>
+                        </div>
                     </div>
 
                     {/* Indicators */}
