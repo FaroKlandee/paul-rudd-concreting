@@ -21,11 +21,17 @@ export function TestimonialCarousel() {
     const testimonials: Testimonial[] = [
         {
             id: 1,
-            name: "Sarah Johnson",
+            name: "Spread the Word Orange Community Member",
             location: "Orange",
-            quote: "The team transformed our driveway completely. The quality of work exceeded our expectations, and they finished ahead of schedule!",
+            quote: `Just wanted to give a big thumbs up to a local business Paul Rudd Concreting!
+            We had some work done and could not be happier with the outcome.
+            Fantastic concreting job and landscaping.
+            They got the job done super quick and at a great price.
+            Also Paul and the team were so kind and patient with
+            my three year old son who was absolutely fascinated with their work and
+            wanted to be involved. Highly recommend 👍`,
             image: "/images/house-1-1.jpg",
-            projectType: "Residential Driveway"
+            projectType: ""
         },
         {
             id: 2,
@@ -34,30 +40,6 @@ export function TestimonialCarousel() {
             quote: "As a business owner, I needed durable concrete flooring that could withstand heavy machinery. Their industrial solution has been perfect for our needs.",
             image: "/images/shed-1.jpg",
             projectType: "Industrial Flooring"
-        },
-        {
-            id: 3,
-            name: "Emma Wilson",
-            location: "Orange",
-            quote: "Our pool area looks amazing! The non-slip concrete surface is both beautiful and practical. Highly recommend their services.",
-            image: "/images/pool-2.jpg",
-            projectType: "Pool Surround"
-        },
-        {
-            id: 4,
-            name: "David Chen",
-            location: "Dubbo",
-            quote: "The stamped concrete patio they installed has become the highlight of our backyard. Professional service from start to finish.",
-            image: "/images/house-2-2.jpg",
-            projectType: "Decorative Patio"
-        },
-        {
-            id: 5,
-            name: "Lisa Rodriguez",
-            location: "Orange",
-            quote: "We hired them to restore the concrete elements of our heritage building. Their attention to detail and respect for the original architecture was impressive.",
-            image: "/images/rest-1-2.jpg",
-            projectType: "Heritage Restoration"
         }
     ]
 
@@ -170,8 +152,8 @@ export function TestimonialCarousel() {
                                 key={index}
                                 onClick={() => setActiveIndex(index)}
                                 className={`w-3 h-3 rounded-full transition-colors ${index === activeIndex
-                                        ? 'bg-orange-500'
-                                        : 'bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600'
+                                    ? 'bg-orange-500'
+                                    : 'bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600'
                                     }`}
                                 aria-label={`Go to testimonial ${index + 1}`}
                             />

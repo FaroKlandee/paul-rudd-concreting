@@ -39,42 +39,32 @@ export default function GalleryPage() {
             description: "Complete driveway renovation with exposed aggregate finish.",
             type: "residential",
             location: "orange",
-            beforeImage: "/images/house-1.jpg",
-            afterImage: "/images/house-1-1.jpg",
+            beforeImage: "/images/driveway.jpg",
+            afterImage: "/images/driveway-2.jpg",
             images: ["/images/house-1.jpg", "/images/house-1-1.jpg"]
         },
         {
             id: 2,
-            title: "Commercial Parking Lot",
-            description: "Heavy-duty concrete parking area for a retail complex.",
-            type: "commercial",
-            location: "bathurst",
-            beforeImage: "/images/rest-2.jpg",
-            afterImage: "/images/rest-2-1.jpg",
-            images: ["/images/rest-2.jpg", "/images/rest-2-1.jpg", "/images/rest-2-2.jpg"]
-        },
-        {
-            id: 3,
             title: "Heritage Building Restoration",
             description: "Careful restoration of concrete elements in a historic building.",
             type: "restoration",
             location: "orange",
             beforeImage: "/images/rest-1.jpg",
-            afterImage: "/images/rest-1-1.jpg",
+            afterImage: "/images/rest-1-2.jpg",
             images: ["/images/rest-1.jpg", "/images/rest-1-1.jpg", "/images/rest-1-2.jpg"]
         },
         {
-            id: 4,
+            id: 3,
             title: "Residential Pool Surround",
             description: "Non-slip concrete pool deck with decorative elements.",
             type: "residential",
             location: "dubbo",
             beforeImage: "/images/pool-1.jpg",
-            afterImage: "/images/pool-2.jpg",
+            afterImage: "/images/pool-3.jpg",
             images: ["/images/pool-1.jpg", "/images/pool-2.jpg", "/images/pool-3.jpg"]
         },
         {
-            id: 5,
+            id: 4,
             title: "Industrial Warehouse Floor",
             description: "High-performance concrete flooring for heavy machinery.",
             type: "commercial",
@@ -84,7 +74,7 @@ export default function GalleryPage() {
             images: ["/images/shed-1.jpg", "/images/shed-2-1.jpg", "/images/shed-2-2.jpg"]
         },
         {
-            id: 6,
+            id: 5,
             title: "Stamped Concrete Patio",
             description: "Decorative stamped concrete for an outdoor living area.",
             type: "residential",
@@ -94,21 +84,24 @@ export default function GalleryPage() {
             images: ["/images/house-2-1.jpg", "/images/house-2-2.jpg"]
         },
         {
+            id: 6,
+            title: "Decorative Steps Installation",
+            description: "Custom concrete steps with integrated lighting.",
+            type: "residential",
+            location: "orange",
+            beforeImage: "/images/step-1.jpg",
+            afterImage: "/images/step-2.jpg",
+            images: ["/images/step-1.jpg", "/images/step-2.jpg", "/images/step-3.jpg"]
+        },
+        {
             id: 7,
             title: "Excavation and Foundation",
             description: "Complete excavation and foundation work for new construction.",
             type: "commercial",
             location: "bathurst",
             images: ["/images/dig-1.jpg", "/images/dig-2.jpg", "/images/dig-3.jpg"]
-        },
-        {
-            id: 8,
-            title: "Decorative Steps Installation",
-            description: "Custom concrete steps with integrated lighting.",
-            type: "residential",
-            location: "orange",
-            images: ["/images/step-1.jpg", "/images/step-2.jpg", "/images/step-3.jpg"]
         }
+
     ];
 
     // Filter projects based on active filters

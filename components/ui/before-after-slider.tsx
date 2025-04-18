@@ -80,27 +80,36 @@ export function BeforeAfterSlider({
             onTouchMove={(e) => handleTouchMove(e as unknown as TouchEvent)}
             onTouchEnd={handleMouseUp}
         >
-            {/* After Image (Full width) */}
-            <div className="absolute inset-0 w-full h-full">
-                <Image
-                    src={afterImage}
-                    alt={afterAlt}
-                    fill
-                    className="object-cover"
-                />
-            </div>
+            {/* Container with background */}
+            <div className="absolute inset-0 w-full h-full bg-gray-100">
+                {/* After Image (Full width) */}
+                <div className="absolute inset-0 w-full h-full">
+                    <Image
+                        src={afterImage}
+                        alt={afterAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
+                        style={{ objectPosition: "center" }}
+                        priority
+                    />
+                </div>
 
-            {/* Before Image (Clipped) */}
-            <div
-                className="absolute inset-0 h-full overflow-hidden"
-                style={{ width: `${sliderPosition}%` }}
-            >
-                <Image
-                    src={beforeImage}
-                    alt={beforeAlt}
-                    fill
-                    className="object-cover"
-                />
+                {/* Before Image (Clipped) */}
+                <div
+                    className="absolute inset-0 h-full overflow-hidden"
+                    style={{ width: `${sliderPosition}%` }}
+                >
+                    <Image
+                        src={beforeImage}
+                        alt={beforeAlt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
+                        style={{ objectPosition: "center" }}
+                        priority
+                    />
+                </div>
             </div>
 
             {/* Slider Control */}
