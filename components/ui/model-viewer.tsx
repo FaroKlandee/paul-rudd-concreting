@@ -102,10 +102,28 @@ export function ModelViewer({ modelType, title, description }: ModelViewerProps)
 
     // Create model based on type
     const createModel = (type: string, scene: THREE.Scene) => {
-        // Clear existing model
-        scene.children = scene.children.filter((child: THREE.Object3D) =>
-            child instanceof THREE.Light || child instanceof THREE.AmbientLight
-        )
+        // Clear existing model - properly remove all non-light objects
+        const objectsToRemove: THREE.Object3D[] = []
+        scene.traverse((object) => {
+            if (!(object instanceof THREE.Light) &&
+                !(object instanceof THREE.AmbientLight) &&
+                !(object instanceof THREE.Scene)) {
+                objectsToRemove.push(object)
+            }
+        })
+
+        // Remove objects outside of the traverse loop to avoid issues
+        objectsToRemove.forEach(object => {
+            object.parent?.remove(object)
+            if (object instanceof THREE.Mesh) {
+                object.geometry.dispose()
+                if (Array.isArray(object.material)) {
+                    object.material.forEach(material => material.dispose())
+                } else {
+                    object.material.dispose()
+                }
+            }
+        })
 
         // Add ground plane
         const groundGeometry = new THREE.PlaneGeometry(10, 10)
@@ -192,10 +210,7 @@ export function ModelViewer({ modelType, title, description }: ModelViewerProps)
 
     // Create driveway model
     const createDrivewayModel = (scene: THREE.Scene) => {
-        // Ground
-        scene.children = scene.children.filter((child: THREE.Object3D) =>
-            child instanceof THREE.Light || child instanceof THREE.AmbientLight
-        )
+        // No need to clear scene here as it's already handled in createModel
 
         // Terrain
         const terrainGeometry = new THREE.PlaneGeometry(10, 10, 20, 20)
@@ -276,10 +291,7 @@ export function ModelViewer({ modelType, title, description }: ModelViewerProps)
 
     // Create stamped concrete model
     const createStampedConcreteModel = (scene: THREE.Scene) => {
-        // Ground
-        scene.children = scene.children.filter((child: THREE.Object3D) =>
-            child instanceof THREE.Light || child instanceof THREE.AmbientLight
-        )
+        // No need to clear scene here as it's already handled in createModel
 
         // Create a textured patio area
         const textureLoader = new THREE.TextureLoader()
