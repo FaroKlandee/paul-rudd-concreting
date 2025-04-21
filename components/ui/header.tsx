@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import {
     Sheet,
+    SheetClose,
     SheetContent,
     SheetTrigger,
 } from "@/components/ui/sheet";
@@ -74,13 +75,14 @@ export function Header() {
                 style={{ opacity: headerOpacity }}
             >
                 <div className="container mx-auto px-4">
-                    <div className="flex items-center h-12">
-                        <div className="flex-1"></div>
-                        <div className="flex items-center gap-6">
-                            <a href="tel:0400000000" className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
+                    <div className="flex items-center h-10">
+                        <div className="flex-1 flex items-center">
+                            <a href="tel:0400000000" className="hidden md:flex items-center gap-2 text-gray-600 hover:text-gray-900">
                                 <Phone className="h-4 w-4" />
                                 <span>0400 000 000</span>
                             </a>
+                        </div>
+                        <div className="flex-1 flex justify-center items-center">
                             <Button variant="default" size="sm" asChild>
                                 <Link href="/contact">Contact Us</Link>
                             </Button>
@@ -103,7 +105,7 @@ export function Header() {
 
             {/* Main header with logo and navigation */}
             <motion.div
-                className="bg-gray-100 fixed top-12 left-0 right-0 z-40"
+                className="bg-gray-100 fixed top-10 left-0 right-0 z-40"
                 initial={{ y: 0 }}
                 animate={{
                     y: shouldShowHeader ? 0 : -200,
@@ -113,7 +115,7 @@ export function Header() {
                 style={{ opacity: headerOpacity }}
             >
                 <div className="container mx-auto px-4">
-                    <div className="flex items-center justify-between h-auto">
+                    <div className="flex items-center justify-between h-16">
                         {/* Brand Logo */}
                         <Link href="/" className="flex items-center justify-center">
                             <Image
@@ -121,7 +123,7 @@ export function Header() {
                                 alt="Paul Rudd Concreting"
                                 width={337}
                                 height={341}
-                                className="h-auto w-32 mix-blend-multiply -translate-y-0"
+                                className="h-auto w-32 mix-blend-lighter -translate-y-0"
                                 priority
                             />
                         </Link>
@@ -132,7 +134,7 @@ export function Header() {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-2xl text-gray-600 hover:text-gray-900 font-medium"
+                                    className="text-lg text-gray-600 hover:text-gray-900 font-medium"
                                 >
                                     {item.name}
                                 </Link>
@@ -147,13 +149,14 @@ export function Header() {
                             <SheetContent>
                                 <nav className="flex flex-col space-y-4 mt-8">
                                     {navItems.map((item) => (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            className="text-xl text-gray-600 hover:text-gray-900"
-                                        >
-                                            {item.name}
-                                        </Link>
+                                        <SheetClose key={item.name} asChild>
+                                            <Link
+                                                href={item.href}
+                                                className="text-xl text-gray-600 hover:text-gray-900"
+                                            >
+                                                {item.name}
+                                            </Link>
+                                        </SheetClose>
                                     ))}
                                 </nav>
                             </SheetContent>
@@ -163,7 +166,7 @@ export function Header() {
             </motion.div>
 
             {/* Spacer to prevent content from being hidden under fixed header */}
-            <div className="h-[108px]"></div>
+            <div className="h-[90px]"></div>
         </>
     );
 }
