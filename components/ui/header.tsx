@@ -123,7 +123,7 @@ export function Header() {
                                 alt="Paul Rudd Concreting"
                                 width={337}
                                 height={341}
-                                className="h-auto w-24 mix-blend-lighter -translate-y-0"
+                                className="h-20 w-20 mix-blend-lighter translate-y-2"
                                 priority
                             />
                         </Link>
