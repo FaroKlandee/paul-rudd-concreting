@@ -93,9 +93,9 @@ export function Header() {
                                 href="https://www.facebook.com/paulruddconcreting"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex gap-2 text-gray-600 hover:text-gray-900"
+                                className="flex gap-2 group"
                             >
-                                <FaFacebook className="h-6 w-6" />
+                                <FaFacebook className="h-6 w-6 text-[#1877F2] group-hover:text-[#0e5fc7]" />
                             </a>
                         </div>
 
