@@ -22,9 +22,9 @@ export function Footer() {
                             href="https://www.facebook.com/paulruddconcreting"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center space-x-2 text-gray-300 hover:text-white translate-y-2"
+                            className="flex items-center space-x-2 text-gray-300 hover:text-white translate-y-2 group"
                         >
-                            <FaFacebookF className="h-5 w-5" />
+                            <FaFacebookF className="h-5 w-5 text-[#1877F2] group-hover:text-[#0e5fc7]" />
                             <span>Follow us on Facebook</span>
                         </a>
                     </div>

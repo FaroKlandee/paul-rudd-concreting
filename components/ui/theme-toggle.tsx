@@ -23,13 +23,13 @@ export function ThemeToggle() {
             variant="ghost"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="rounded-full w-9 h-9 transition-all duration-300"
+            className="rounded-full w-12 h-12 transition-all duration-300"
             aria-label="Toggle theme"
         >
             {theme === "dark" ? (
-                <Sun className="h-5 w-5 text-yellow-400" />
+                <Sun className="h-6 w-6 text-yellow-400" />
             ) : (
-                <Moon className="h-5 w-5 text-gray-700" />
+                <Moon className="h-6 w-6 text-gray-700" />
             )}
             <span className="sr-only">Toggle theme</span>
         </Button>
