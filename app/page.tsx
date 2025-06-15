@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { TestimonialCarousel } from "@/components/ui/testimonial-carousel";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Check, ChevronRight, Clock, Mail, Phone } from 'lucide-react';
+import { ArrowRight, Check, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useRef } from "react";
@@ -265,35 +265,19 @@ export default function HomePage() {
                 Contact us today for a free consultation and quote
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="flex items-center gap-4 group hover:bg-gray-100 dark:hover:bg-gray-800 p-3 rounded-lg transition-all duration-300">
-                  <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                    <Phone className="h-6 w-6 text-orange-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Call Us</h3>
-                    <p className="text-gray-600 dark:text-gray-400">0400 000 000</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 group hover:bg-gray-100 dark:hover:bg-gray-800 p-3 rounded-lg transition-all duration-300">
-                  <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                    <Mail className="h-6 w-6 text-orange-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-600 dark:text-gray-400">info@paulrudd.com</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4 group hover:bg-gray-100 dark:hover:bg-gray-800 p-3 rounded-lg transition-all duration-300">
-                  <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                    <Clock className="h-6 w-6 text-orange-500" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Hours</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Mon-Fri: 7am-5pm</p>
-                  </div>
-                </div>
+            <CardContent className="text-center py-12">
+              <div className="space-y-6">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 px-12 py-6 text-2xl font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-w-[300px]"
+                  onClick={() => router.push('/contact')}
+                >
+                  Start Your Project
+                  <ArrowRight className="ml-4 h-7 w-7" />
+                </Button>
+                <p className="text-base text-gray-600 dark:text-gray-400 font-medium">
+                  Free consultation • Quick response • Professional service
+                </p>
               </div>
             </CardContent>
           </Card>

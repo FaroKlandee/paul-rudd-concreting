@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Menu, Phone } from "lucide-react";
+import { Menu } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
@@ -75,14 +75,9 @@ export function Header() {
                 style={{ opacity: headerOpacity }}
             >
                 <div className="container mx-auto px-4">
-                    <div className="flex items-center h-10">
-                        <div className="flex-1 flex items-center">
-                            <a href="tel:0400000000" className="hidden md:flex items-center gap-2 text-gray-600 hover:text-gray-900">
-                                <Phone className="h-4 w-4" />
-                                <span>0429 848 685</span>
-                            </a>
-                        </div>
-                        <div className="flex-1 flex justify-center items-center">
+                    <div className="flex items-center justify-between h-10">
+                        <div className="flex-1"></div>
+                        <div className="flex items-center">
                             <Button variant="default" size="sm" asChild>
                                 <Link href="/contact">Contact Us</Link>
                             </Button>
@@ -98,7 +93,6 @@ export function Header() {
                                 <FaFacebook className="h-6 w-6 text-[#1877F2] group-hover:text-[#0e5fc7]" />
                             </a>
                         </div>
-
                     </div>
                 </div>
             </motion.div>
