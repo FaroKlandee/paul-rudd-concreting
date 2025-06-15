@@ -79,7 +79,7 @@ export function Header() {
                         <div className="flex-1 flex items-center">
                             <a href="tel:0400000000" className="hidden md:flex items-center gap-2 text-gray-600 hover:text-gray-900">
                                 <Phone className="h-4 w-4" />
-                                <span>0400 000 000</span>
+                                <span>0429 848 685</span>
                             </a>
                         </div>
                         <div className="flex-1 flex justify-center items-center">
@@ -119,7 +119,7 @@ export function Header() {
                         {/* Brand Logo */}
                         <Link href="/" className="flex items-center justify-center">
                             <Image
-                                src="/images/prc-logo.png"
+                                src="/logo-cutout.png"
                                 alt="Paul Rudd Concreting"
                                 width={337}
                                 height={341}
