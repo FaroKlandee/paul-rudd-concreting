@@ -12,7 +12,7 @@ export function Footer() {
                     {/* Brand and Social */}
                     <div className="space-y-4">
                         <Image
-                            src="/images/prc-logo.png"
+                            src="/logo-cutout.png"
                             alt="Paul Rudd Concreting"
                             width={337}
                             height={341}
