@@ -4,7 +4,7 @@ import { BackToTop } from "@/components/ui/back-to-top";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Clock, MapPin, Phone } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -82,19 +82,6 @@ export default function ContactPage() {
                             </p>
 
                             <div className="space-y-6">
-                                <div className="flex items-start gap-4 group">
-                                    <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                                        <Phone className="h-6 w-6 text-orange-500" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-lg">Phone</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">0429 848 685</p>
-                                        <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                                            Respond within 24 hours
-                                        </p>
-                                    </div>
-                                </div>
-
                                 <div className="flex items-start gap-4 group">
                                     <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
                                         <MapPin className="h-6 w-6 text-orange-500" />
