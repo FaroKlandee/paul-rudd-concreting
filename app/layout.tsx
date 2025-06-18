@@ -21,7 +21,31 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png' }
     ]
   },
-  manifest: '/site.webmanifest'
+  manifest: '/site.webmanifest',
+  // OpenGraph metadata for social media and search engines
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    url: 'https://paulruddconcreting.com.au', // Replace with your actual domain
+    title: 'Paul Rudd Concreting',
+    description: 'Best Concreter in Orange.',
+    siteName: 'Paul Rudd Concreting',
+    images: [
+      {
+        url: '/favicon-512x512.png', // Using the largest favicon as OG image
+        width: 512,
+        height: 512,
+        alt: 'Paul Rudd Concreting Logo',
+      }
+    ],
+  },
+  // Twitter card metadata
+  twitter: {
+    card: 'summary',
+    title: 'Paul Rudd Concreting',
+    description: 'Best Concreter in Orange.',
+    images: ['/favicon-512x512.png'],
+  }
 };
 
 export default function RootLayout({
