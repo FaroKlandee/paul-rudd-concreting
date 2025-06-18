@@ -4,7 +4,7 @@ import { BackToTop } from "@/components/ui/back-to-top";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -82,32 +82,6 @@ export default function ContactPage() {
                             </p>
 
                             <div className="space-y-6">
-                                <div className="flex items-start gap-4 group">
-                                    <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                                        <Phone className="h-6 w-6 text-orange-500" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-lg">Phone</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">0400 000 000</p>
-                                        <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                                            Available Monday-Friday, 7am-5pm
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-4 group">
-                                    <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                                        <Mail className="h-6 w-6 text-orange-500" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-lg">Email</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">info@paulrudd.com</p>
-                                        <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                                            We'll respond within 24 hours
-                                        </p>
-                                    </div>
-                                </div>
-
                                 <div className="flex items-start gap-4 group">
                                     <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
                                         <MapPin className="h-6 w-6 text-orange-500" />
@@ -358,7 +332,7 @@ export default function ContactPage() {
                     <h2 className="text-3xl font-bold mb-8 text-center">Our Location</h2>
                     <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53406.38001655112!2d149.07676233936686!3d-33.28578522678477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b0f58fe7974cde7%3A0x50609b490442940!2sOrange%20NSW%202800!5e0!3m2!1sen!2sau!4v1650000000000!5m2!1sen!2sau"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53385.534532408885!2d149.02056705200667!3d-33.25088832877374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b102cd0e28c4861%3A0x50609b4904423f0!2sOrange%20NSW%202800!5e0!3m2!1sen!2sau!4v1749979543357!5m2!1sen!2sau"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}

@@ -1,4 +1,3 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebookF } from 'react-icons/fa';
@@ -10,7 +9,7 @@ export function Footer() {
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {/* Brand and Social */}
-                    <div className="space-y-4">
+                    <Link href="/">
                         <Image
                             src="/logo-cutout.png"
                             alt="Paul Rudd Concreting"
@@ -18,6 +17,8 @@ export function Footer() {
                             height={341}
                             className="h-40 w-40 object-contain mix-blend-lighter"
                         />
+                    </Link>
+                    <div className="space-y-4">
                         <a
                             href="https://www.facebook.com/paulruddconcreting"
                             target="_blank"
@@ -27,25 +28,6 @@ export function Footer() {
                             <FaFacebookF className="h-5 w-5 text-[#1877F2] group-hover:text-[#0e5fc7]" />
                             <span>Follow us on Facebook</span>
                         </a>
-                    </div>
-
-                    {/* Contact Info */}
-                    <div>
-                        <h4 className="font-semibold text-white mb-4">Contact Information</h4>
-                        <div className="space-y-3">
-                            <div className="flex items-center space-x-3">
-                                <Phone className="h-5 w-5" />
-                                <span>0400 000 000</span>
-                            </div>
-                            <div className="flex items-center space-x-3">
-                                <Mail className="h-5 w-5" />
-                                <span>info@paulrudd.com</span>
-                            </div>
-                            <div className="flex items-center space-x-3">
-                                <MapPin className="h-5 w-5" />
-                                <span>Orange, NSW</span>
-                            </div>
-                        </div>
                     </div>
 
                     {/* Business Hours */}
