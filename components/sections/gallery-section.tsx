@@ -1,8 +1,6 @@
 'use client';
 
-import { BackToTop } from "@/components/ui/back-to-top";
 import { BeforeAfterSlider } from "@/components/ui/before-after-slider";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Filter } from "lucide-react";
@@ -25,7 +23,7 @@ interface Project {
     images: string[];
 }
 
-export default function GalleryPage() {
+export function GallerySection() {
     // State for active filters
     const [activeType, setActiveType] = useState<ProjectType>('all');
     const [activeLocation, setActiveLocation] = useState<ProjectLocation>('all');
@@ -101,7 +99,6 @@ export default function GalleryPage() {
             location: "bathurst",
             images: ["/images/dig-1.jpg", "/images/dig-2.jpg", "/images/dig-3.jpg"]
         }
-
     ];
 
     // Filter projects based on active filters
@@ -128,32 +125,22 @@ export default function GalleryPage() {
     ];
 
     return (
-        <main className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative h-64 bg-gradient-to-r from-gray-900 to-gray-800">
-                <div className="absolute inset-0 bg-black/50" />
-                <Image
-                    src="/images/stencil-1.jpg"
-                    alt="Project gallery"
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                <div className="relative container mx-auto px-4 h-full flex items-center">
-                    <div className="max-w-2xl text-white">
+        <section id="gallery" className="min-h-screen pt-24">
+            {/* Gallery Header */}
+            <div className="bg-gray-50 dark:bg-gray-800 py-16 transform -translate-y-1 relative z-10">
+                <div className="container mx-auto px-4">
+                    <div className="text-center">
                         <h1 className="text-5xl font-bold mb-4">Project Gallery</h1>
-                        <p className="text-xl text-gray-200">
+                        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Browse our completed concrete projects throughout Orange and surrounding areas
                         </p>
                     </div>
                 </div>
-            </section>
+            </div>
 
             {/* Gallery Section */}
-            <section className="py-16">
+            <div className="py-16 bg-white dark:bg-gray-900">
                 <div className="container mx-auto px-4">
-                    <Breadcrumb />
-
                     {/* Filters */}
                     <div className="mb-8">
                         <div className="flex items-center justify-between mb-4">
@@ -211,7 +198,7 @@ export default function GalleryPage() {
                     {/* Projects Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredProjects.map(project => (
-                            <Card key={project.id} className="overflow-hidden group hover:shadow-lg transition-all duration-300">
+                            <Card key={project.id} className="overflow-hidden group transition-all duration-300">
                                 <CardContent className="p-0">
                                     {/* Before/After Slider or Single Image */}
                                     {project.beforeImage && project.afterImage ? (
@@ -271,8 +258,7 @@ export default function GalleryPage() {
                         </div>
                     )}
                 </div>
-            </section>
-            <BackToTop />
-        </main>
+            </div>
+        </section>
     );
 }

@@ -8,10 +8,12 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { scrollToSection } from "@/lib/scroll-utils";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 
@@ -19,6 +21,9 @@ export function Header() {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [shouldShowHeader, setShouldShowHeader] = useState(true);
     const { scrollY } = useScroll();
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
+    const headerHeight = 90; // Height of the fixed header in pixels
 
     // Track scroll direction and position
     useEffect(() => {
@@ -52,14 +57,26 @@ export function Header() {
         [0, 100],
         [1, 0.95]
     );
+
+    // Navigation items
     const navItems = [
-        { name: 'Home', href: '/' },
-        { name: 'Services', href: '/services' },
-        { name: 'Gallery', href: '/gallery' },
-        { name: 'Models', href: '/models' },
-        { name: 'Calculator', href: '/calculator' },
-        { name: 'Contact', href: '/contact' },
+        { name: 'Home', href: '/', sectionId: 'home' },
+        { name: 'Gallery', href: '/gallery', sectionId: 'gallery' },
+        { name: 'Calculator', href: '/calculator', sectionId: 'calculator' },
+        { name: 'Contact', href: '/contact', sectionId: 'contact' },
     ];
+
+    // Handle navigation click
+    const handleNavClick = (e: React.MouseEvent, item: { name: string, href: string, sectionId: string | null }) => {
+        // If it's the models page or we're not on the home page, use normal navigation
+        if (!item.sectionId || !isHomePage) {
+            return; // Let the Link component handle the navigation
+        }
+
+        // If we're on the home page and it's not the models link, use scroll navigation
+        e.preventDefault();
+        scrollToSection(item.sectionId, headerHeight);
+    };
 
     return (
         <>
@@ -78,9 +95,19 @@ export function Header() {
                     <div className="flex items-center justify-between h-10">
                         <div className="flex-1"></div>
                         <div className="flex items-center">
-                            <Button variant="default" size="sm" asChild>
-                                <Link href="/contact">Contact Us</Link>
-                            </Button>
+                            {isHomePage ? (
+                                <Button
+                                    variant="default"
+                                    size="sm"
+                                    onClick={() => scrollToSection('contact', headerHeight)}
+                                >
+                                    Contact Us
+                                </Button>
+                            ) : (
+                                <Button variant="default" size="sm" asChild>
+                                    <Link href="/#contact">Contact Us</Link>
+                                </Button>
+                            )}
                         </div>
                         <div className="flex-1 flex justify-end items-center gap-4">
                             <ThemeToggle />
@@ -111,27 +138,58 @@ export function Header() {
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-16">
                         {/* Brand Logo */}
-                        <Link href="/" className="flex items-center justify-center">
-                            <Image
-                                src="/logo-cutout.png"
-                                alt="Paul Rudd Concreting"
-                                width={337}
-                                height={341}
-                                className="h-20 w-20 mix-blend-lighter translate-y-2"
-                                priority
-                            />
-                        </Link>
+                        {isHomePage ? (
+                            <a
+                                href="#home"
+                                className="flex items-center justify-center"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToSection('home', headerHeight);
+                                }}
+                            >
+                                <Image
+                                    src="/logo-cutout.png"
+                                    alt="Paul Rudd Concreting"
+                                    width={337}
+                                    height={341}
+                                    className="h-32 w-32 mix-blend-lighter translate-y-10 relative z-50"
+                                    priority
+                                />
+                            </a>
+                        ) : (
+                            <Link href="/" className="flex items-center justify-center">
+                                <Image
+                                    src="/logo-cutout.png"
+                                    alt="Paul Rudd Concreting"
+                                    width={337}
+                                    height={341}
+                                    className="h-32 w-32 mix-blend-lighter translate-y-10 relative z-50"
+                                    priority
+                                />
+                            </Link>
+                        )}
 
                         {/* Desktop Navigation */}
                         <nav className="hidden md:flex items-center space-x-12">
                             {navItems.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className="text-lg text-gray-600 hover:text-gray-900 font-medium"
-                                >
-                                    {item.name}
-                                </Link>
+                                isHomePage && item.sectionId ? (
+                                    <a
+                                        key={item.name}
+                                        href={`#${item.sectionId}`}
+                                        className="text-lg text-gray-600 hover:text-gray-900 font-medium"
+                                        onClick={(e) => handleNavClick(e, item)}
+                                    >
+                                        {item.name}
+                                    </a>
+                                ) : (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        className="text-lg text-gray-600 hover:text-gray-900 font-medium"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                )
                             ))}
                         </nav>
 
@@ -144,12 +202,22 @@ export function Header() {
                                 <nav className="flex flex-col space-y-4 mt-8">
                                     {navItems.map((item) => (
                                         <SheetClose key={item.name} asChild>
-                                            <Link
-                                                href={item.href}
-                                                className="text-xl text-gray-600 hover:text-gray-900"
-                                            >
-                                                {item.name}
-                                            </Link>
+                                            {isHomePage && item.sectionId ? (
+                                                <a
+                                                    href={`#${item.sectionId}`}
+                                                    className="text-xl text-gray-600 hover:text-gray-900"
+                                                    onClick={(e) => handleNavClick(e, item)}
+                                                >
+                                                    {item.name}
+                                                </a>
+                                            ) : (
+                                                <Link
+                                                    href={item.href}
+                                                    className="text-xl text-gray-600 hover:text-gray-900"
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            )}
                                         </SheetClose>
                                     ))}
                                 </nav>

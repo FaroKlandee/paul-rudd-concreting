@@ -1,14 +1,10 @@
 'use client';
 
-import { BackToTop } from "@/components/ui/back-to-top";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Clock, MapPin } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 
-export default function ContactPage() {
+export function ContactSection() {
     const [formState, setFormState] = useState({
         name: '',
         email: '',
@@ -45,86 +41,20 @@ export default function ContactPage() {
     };
 
     return (
-        <main className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative h-64 bg-gradient-to-r from-gray-900 to-gray-800">
-                <div className="absolute inset-0 bg-black/50" />
-                <Image
-                    src="/images/rest-3.jpg"
-                    alt="Contact us"
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                <div className="relative container mx-auto px-4 h-full flex items-center">
-                    <div className="max-w-2xl text-white">
+        <section id="contact" className="min-h-screen pt-24">
+            {/* Contact Section with Integrated Header and Form */}
+            <div className="bg-white dark:bg-gray-900 py-16">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
                         <h1 className="text-5xl font-bold mb-4">Contact Us</h1>
-                        <p className="text-xl text-gray-200">
-                            Get in touch for a free consultation and quote
+                        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                            Have questions about our concrete services? Need a quote for your project?
+                            We're here to help. Fill out the form below.
                         </p>
                     </div>
-                </div>
-            </section>
-
-            {/* Contact Section */}
-            <section className="py-16">
-                <div className="container mx-auto px-4">
-                    <Breadcrumb />
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
-                        {/* Contact Information */}
-                        <div>
-                            <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
-                            <p className="text-gray-600 dark:text-gray-400 mb-8">
-                                Have questions about our concrete services? Need a quote for your project?
-                                We're here to help. Contact us using the information below or fill out the
-                                quote request form.
-                            </p>
-
-                            <div className="space-y-6">
-                                <div className="flex items-start gap-4 group">
-                                    <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                                        <MapPin className="h-6 w-6 text-orange-500" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-lg">Location</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">Orange, NSW</p>
-                                        <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
-                                            Serving Orange and surrounding areas
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-4 group">
-                                    <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-full group-hover:scale-110 transition-transform duration-300">
-                                        <Clock className="h-6 w-6 text-orange-500" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-lg">Business Hours</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">Monday-Friday: 7am-5pm</p>
-                                        <p className="text-gray-600 dark:text-gray-400">Saturday: By appointment</p>
-                                        <p className="text-gray-600 dark:text-gray-400">Sunday: Closed</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="mt-12">
-                                <h3 className="text-2xl font-bold mb-4">Service Areas</h3>
-                                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                                    We provide concrete services throughout Orange and surrounding areas including:
-                                </p>
-                                <div className="grid grid-cols-2 gap-2">
-                                    {['Orange', 'Bathurst', 'Dubbo', 'Parkes', 'Forbes', 'Cowra', 'Blayney', 'Molong'].map((area) => (
-                                        <div key={area} className="bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-md text-center">
-                                            {area}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
+                    <div className="flex justify-center">
                         {/* Quote Request Form */}
-                        <div>
+                        <div className="max-w-2xl w-full">
                             <Card className="border-orange-200 dark:border-orange-900/20">
                                 <CardHeader className="bg-orange-50 dark:bg-orange-900/10 border-b border-orange-100 dark:border-orange-900/20">
                                     <CardTitle className="text-2xl">Request a Quote</CardTitle>
@@ -316,6 +246,9 @@ export default function ContactPage() {
                                                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
                                                     * Required fields
                                                 </p>
+                                                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
+                                                    * No fees are charged for quotes
+                                                </p>
                                             </div>
                                         </form>
                                     )}
@@ -324,13 +257,13 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
             {/* Map Section */}
-            <section className="py-12 bg-gray-50 dark:bg-gray-900">
+            <div className="py-16 bg-gray-50 dark:bg-gray-800">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold mb-8 text-center">Our Location</h2>
-                    <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
+                    <div className="relative h-96 rounded-lg overflow-hidden">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53385.534532408885!2d149.02056705200667!3d-33.25088832877374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b102cd0e28c4861%3A0x50609b4904423f0!2sOrange%20NSW%202800!5e0!3m2!1sen!2sau!4v1749979543357!5m2!1sen!2sau"
                             width="100%"
@@ -343,8 +276,7 @@ export default function ContactPage() {
                         ></iframe>
                     </div>
                 </div>
-            </section>
-            <BackToTop />
-        </main>
+            </div>
+        </section>
     );
 }
