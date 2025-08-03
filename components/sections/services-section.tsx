@@ -1,8 +1,5 @@
 'use client';
 
-import { BackToTop } from "@/components/ui/back-to-top";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
@@ -10,13 +7,13 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Building, Building2, ChevronRight, Home, Phone } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { Building, Building2, ChevronRight, Home } from "lucide-react";
 
+interface ServicesSectionProps {
+    onNavigate: (path: string) => void;
+}
 
-
-export default function ServicesPage() {
+export function ServicesSection({ onNavigate }: ServicesSectionProps) {
     const residentialServices = [
         {
             title: "Driveways & Pathways",
@@ -69,34 +66,25 @@ export default function ServicesPage() {
             description: "Expert concrete restoration services to preserve and revitalize historic and damaged concrete structures.",
             features: ["Heritage restoration", "Crack repair", "Surface rehabilitation", "Structural reinforcement"]
         }
-    ]
+    ];
 
     return (
-        <main className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative h-64 bg-gradient-to-r from-gray-900 to-gray-800">
-                <div className="absolute inset-0 bg-black/50" />
-                <Image
-                    src="/images/rest-3.jpg"
-                    alt="Concrete services"
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                <div className="relative container mx-auto px-4 h-full flex items-center">
-                    <div className="max-w-2xl text-white">
+        <section id="services" className="min-h-screen pt-24">
+            {/* Services Header */}
+            <div className="bg-gray-50 dark:bg-gray-800 py-16">
+                <div className="container mx-auto px-4">
+                    <div className="text-center">
                         <h1 className="text-5xl font-bold mb-4">Our Services</h1>
-                        <p className="text-xl text-gray-200">
+                        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Professional concrete solutions for every project, big or small
                         </p>
                     </div>
                 </div>
-            </section>
+            </div>
 
             {/* Service Categories */}
-            <section className="py-16">
+            <div className="py-16 bg-white dark:bg-gray-900">
                 <div className="container mx-auto px-4">
-                    <Breadcrumb />
                     {/* Residential Services */}
                     <div id="residential-excellence" className="mb-20">
                         <div className="flex items-center gap-3 mb-8">
@@ -181,28 +169,8 @@ export default function ServicesPage() {
                         </div>
                     </div>
 
-                    {/* Call to Action */}
-                    <div className="bg-gray-50 rounded-lg p-8 text-center">
-                        <h3 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
-                        <p className="text-gray-600 mb-6">
-                            Contact us for a free consultation and quote. We&apos;re here to help bring your vision to life.
-                        </p>
-                        <div className="flex justify-center gap-4">
-                            <Button size="lg" className="bg-orange-500 hover:bg-orange-600">
-                                <Phone className="mr-2 h-5 w-5" />
-                                Call Us Now
-                            </Button>
-                            <Button size="lg" variant="outline" asChild>
-                                <Link href="/contact">
-                                    Request Quote
-                                    <ChevronRight className="ml-2 h-5 w-5" />
-                                </Link>
-                            </Button>
-                        </div>
-                    </div>
                 </div>
-            </section>
-            <BackToTop />
-        </main>
+            </div>
+        </section>
     );
 }

@@ -1,39 +1,26 @@
 'use client';
 
-import { BackToTop } from "@/components/ui/back-to-top";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ConcreteCalculator } from "@/components/ui/concrete-calculator";
 import { Calculator } from "lucide-react";
-import Image from "next/image";
 
-export default function CalculatorPage() {
+export function CalculatorSection() {
     return (
-        <main className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative h-64 bg-gradient-to-r from-gray-900 to-gray-800">
-                <div className="absolute inset-0 bg-black/50" />
-                <Image
-                    src="/images/dig-2.jpg"
-                    alt="Concrete calculator"
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                <div className="relative container mx-auto px-4 h-full flex items-center">
-                    <div className="max-w-2xl text-white">
+        <section id="calculator" className="min-h-screen pt-24">
+            {/* Calculator Header */}
+            <div className="bg-gray-50 dark:bg-gray-800 py-16 transform -translate-y-1 relative z-10">
+                <div className="container mx-auto px-4">
+                    <div className="text-center">
                         <h1 className="text-5xl font-bold mb-4">Concrete Calculator</h1>
-                        <p className="text-xl text-gray-200">
+                        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Estimate the amount of concrete needed for your project
                         </p>
                     </div>
                 </div>
-            </section>
+            </div>
 
             {/* Calculator Section */}
-            <section className="py-16">
+            <div className="py-16 bg-white dark:bg-gray-900">
                 <div className="container mx-auto px-4">
-                    <Breadcrumb />
-
                     <div className="max-w-4xl mx-auto mb-12">
                         <div className="flex items-center gap-3 mb-6">
                             <Calculator className="h-8 w-8 text-orange-500" />
@@ -96,21 +83,9 @@ export default function CalculatorPage() {
                             </div>
                         </div>
 
-                        <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-lg border-l-4 border-orange-500">
-                            <h4 className="text-lg font-semibold mb-2">Need Help With Your Project?</h4>
-                            <p className="text-gray-700 dark:text-gray-300 mb-4">
-                                Our experienced team can handle all aspects of your concrete project, from
-                                planning and preparation to pouring and finishing. Contact us today for a
-                                free quote and consultation.
-                            </p>
-                            <p className="font-medium">
-                                Call us at: <span className="text-orange-600 dark:text-orange-400">0400 000 000</span>
-                            </p>
-                        </div>
                     </div>
                 </div>
-            </section>
-            <BackToTop />
-        </main>
+            </div>
+        </section>
     );
 }

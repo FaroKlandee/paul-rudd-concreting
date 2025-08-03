@@ -1,5 +1,4 @@
 import { ThemeProvider } from '@/components/theme-provider';
-import { Chatbot } from '@/components/ui/chatbot';
 import { Footer } from '@/components/ui/footer';
 import { Header } from '@/components/ui/header';
 import { NavigationEvents } from "@/components/ui/navigation-events";
@@ -38,13 +37,6 @@ export const metadata: Metadata = {
         alt: 'Paul Rudd Concreting Logo',
       }
     ],
-  },
-  // Twitter card metadata
-  twitter: {
-    card: 'summary',
-    title: 'Paul Rudd Concreting',
-    description: 'Best Concreter in Orange.',
-    images: ['/favicon-512x512.png'],
   }
 };
 
@@ -61,7 +53,6 @@ export default function RootLayout({
           <NavigationEvents />
           {children}
           <Footer />
-          <Chatbot />
         </ThemeProvider>
       </body>
     </html>
