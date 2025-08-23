@@ -36,7 +36,7 @@ export function TestimonialCarousel() {
         {
             id: 2,
             name: "",
-            location: "Bathurst",
+            location: "",
             quote: `Hi Paul, I wish to sincerely thank for a great cement job you did on the driveway.
             It has exceeded my expectations and has added value to the house.
             Fantastic job mate`,
@@ -47,7 +47,7 @@ export function TestimonialCarousel() {
             id: 3,
             name: "Molong Community member",
             location: "Molong",
-            quote: "Paul Rudd did our garage slab last year. Outstanding workmanship and would highly recommend",
+            quote: "Paul Rudd did our garage slab last year. Outstanding workmanship and would highly recommend.",
             image: "",
             projectType: "Garage port"
         },
