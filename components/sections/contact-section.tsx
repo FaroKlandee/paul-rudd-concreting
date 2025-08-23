@@ -202,7 +202,7 @@ export function ContactSection() {
             setFormState(prev => ({
                 ...prev,
                 loading: false,
-                errors: { submit: 'There was an error submitting your form. Please try again or contact us directly at 0400 000 000.' }
+                errors: { submit: 'There was an error submitting your form. Please try again.' }
             }));
         }
     };
