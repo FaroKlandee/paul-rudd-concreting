@@ -35,12 +35,30 @@ export function TestimonialCarousel() {
         },
         {
             id: 2,
-            name: "Michael Thompson",
-            location: "Bathurst",
-            quote: "As a business owner, I needed durable concrete flooring that could withstand heavy machinery. Their industrial solution has been perfect for our needs.",
-            image: "/images/shed-1.jpg",
-            projectType: "Industrial Flooring"
-        }
+            name: "",
+            location: "",
+            quote: `Hi Paul, I wish to sincerely thank for a great cement job you did on the driveway.
+            It has exceeded my expectations and has added value to the house.
+            Fantastic job mate`,
+            image: "",
+            projectType: "Driveway concreting"
+        },
+        {
+            id: 3,
+            name: "Molong Community member",
+            location: "Molong",
+            quote: "Paul Rudd did our garage slab last year. Outstanding workmanship and would highly recommend.",
+            image: "",
+            projectType: "Garage port"
+        },
+        {
+            id: 4,
+            name: "On the Move Physiotherapy Services",
+            location: "Orange",
+            quote: "Paul is pedantic in preparation which makes for great results and in this case a happy customer.",
+            image: "",
+            projectType: "Car port"
+        },
     ]
 
     const nextTestimonial = () => {
