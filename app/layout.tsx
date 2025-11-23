@@ -2,6 +2,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Footer } from '@/components/ui/footer';
 import { Header } from '@/components/ui/header';
 import { NavigationEvents } from "@/components/ui/navigation-events";
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
           <Header />
           <NavigationEvents />
           {children}
+          <Analytics />
           <Footer />
         </ThemeProvider>
       </body>

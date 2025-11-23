@@ -9,6 +9,7 @@ import { scrollToHashSection, scrollToSection } from "@/lib/scroll-utils";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
+
 export default function HomePage() {
   const router = useRouter();
   const headerHeight = 90; // Height of the fixed header in pixels
