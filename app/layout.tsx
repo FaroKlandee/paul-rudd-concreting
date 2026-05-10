@@ -4,6 +4,7 @@ import { Header } from '@/components/ui/header';
 import { NavigationEvents } from "@/components/ui/navigation-events";
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from "next";
+import Script from 'next/script';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -56,9 +57,10 @@ export default function RootLayout({
           <Analytics />
           <Footer />
         </ThemeProvider>
-        <!-- 100% privacy-first analytics -->
-        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-
+        <Script
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
