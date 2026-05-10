@@ -56,6 +56,9 @@ export default function RootLayout({
           <Analytics />
           <Footer />
         </ThemeProvider>
+        <!-- 100% privacy-first analytics -->
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+
       </body>
     </html>
   );
