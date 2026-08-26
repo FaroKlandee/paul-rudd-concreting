@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Paul Rudd Concreting
+
+A marketing website for Paul Rudd Concreting (Orange Concrete Services), built with Next.js. Showcases services, a project gallery, an interactive concrete calculator, testimonials, and a quote request form.
+
+## Tech Stack
+
+- [Next.js 15](https://nextjs.org) (App Router, Turbopack) + React 19 + TypeScript
+- Tailwind CSS with [shadcn/ui](https://ui.shadcn.com) components (`components.json`)
+- Framer Motion for animations
+- React Three Fiber / drei / three.js for interactive 3D models
+- Prisma (`@prisma/client`) for data access
+- React Hook Form + Zod for form handling and validation
+- Formspree for form submission, Google reCAPTCHA for spam protection
+- Vercel Analytics
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site. The app auto-reloads as you edit files under `app/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file with:
 
-## Learn More
+```
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your-recaptcha-site-key
+NEXT_PUBLIC_FORMSPREE_FORM_ID=your-formspree-form-id
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/                  # Next.js App Router pages, layout, global styles
+  hooks/               # Custom React hooks (e.g. form security)
+components/
+  sections/            # Page sections: home, services, gallery, calculator, contact
+  ui/                  # shadcn/ui primitives
+  theme-provider.tsx   # Dark/light mode support
+lib/                   # Utilities (scroll helpers, security helpers)
+prd/                   # Product requirements documentation
+Testing/               # Test plans and UAT documentation
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Available Scripts
 
-## Deploy on Vercel
+```bash
+npm run dev      # Start the development server (Turbopack)
+npm run build    # Build for production
+npm run start    # Start the production server
+npm run lint     # Run ESLint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Documentation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Product Requirements](prd/prd.md)
+- [Testing Plan](Testing/Testing.md)
+
+## Deployment
+
+This project is set up to deploy on [Vercel](https://vercel.com). See the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying) for details.
